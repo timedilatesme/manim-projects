@@ -3,12 +3,6 @@ from manimlib.imports import*
 # DRIVER CODE
 # python manim.py my_projects\For_Videos\scattpart.py -pl 
 
-class IntroScene(Scene):
-	def construct(self):
-		contents = BulletedList("","","")
-
-		
-
 #DONE
 class reltnbw_kandE(Scene):
 	#CONFIG = {"camera_config" : {"background_color" : GREEN_SCREEN}}
