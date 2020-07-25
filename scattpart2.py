@@ -4,6 +4,28 @@ from from_3b1b.active.diffyq.part3.temperature_graphs import TemperatureGraphSce
 # DRIVER CODE
 # python manim.py my_projects\For_Videos\scattpart2.py -pl
 
+class CustomScene(Scene):
+    
+    def __init__(self, **kwargs):
+        Scene.__init__(self, **kwargs)
+
+    def scale_and_wait(self,object,scale_factor = 1.3,wait_time = 2,single_anim_time = 0.5):
+        self.play(object.scale,scale_factor,run_time = single_anim_time)
+        self.wait(wait_time)
+        self.play(object.scale,1/scale_factor,run_time = single_anim_time)
+
+    def highlight(self,object,half_angle = PI/24,scale_factor = 1.3,single_anim_time = 0.5):
+        self.play(object.scale,scale_factor,run_time = single_anim_time)
+        self.play(object.rotate,half_angle,run_time = single_anim_time)
+        self.play(object.rotate,-2*half_angle,run_time = single_anim_time)
+        self.play(object.rotate,half_angle,run_time = single_anim_time)
+        self.play(object.scale,1/scale_factor,run_time = single_anim_time)
+
+    def write_by_index(self,object,time_gap = 0.5,single_anim_time = 0.5):
+        for i in object:
+            self.play(Write(i),run_time = single_anim_time)
+            self.wait(time_gap)
+
 
 class IntroScene(Scene):
 	def construct(self):
